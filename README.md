@@ -39,7 +39,7 @@ npm install svelte-color
     // setColor accepts any value
     // that tinycolor2 accepts
     // use this method, do not do chrome.color = "red"
-    // startColor accepts the same arguments
+    // startColor accepts the same values
     chrome.setColor("red");
     chrome.setColor("#fff")
     chrome.setColor("#ffffff")
@@ -71,16 +71,16 @@ npm install svelte-color
 ---
 
 ### API
-| Prop / Method   | Type            | Default / Args         | Description                                                  |
-|-----------------|-----------------|------------------------|--------------------------------------------------------------|
-| class           | string          | ""                     | class(es) to add to the root element                         |
-| startColor      | string | object | red                    | any color that tinicolor2 accepts                            |
-| bind:color      | object          |                        | see in the usage seccion                                     |
-| bind:r,g,b      | number 0-255    |                        | red, green, blue                                             |
-| bind:h          | number 0-359    |                        | hue                                                          |
-| bind:s,l,v,a    | number 0-1      |                        | saturation, lightness, value, alpha                          |
-| setColor(color) | method          | color: string | object | color: any color tinycolor2 accepts                          |
-| on:input        | event           | event.detail = color   | Any time user changes value, see detail in the usage seccion |
+| Prop / Method   | Type            | Default / Args                | Description                                                  |
+|-----------------|-----------------|-------------------------------|--------------------------------------------------------------|
+| class           | string          | ""                            | class(es) to add to the root element                         |
+| startColor      | string | object | red                           | any color that tinicolor2 accepts                            |
+| bind:color      | object          |                               | see in the usage seccion                                     |
+| bind:r,g,b      | number 0-255    |                               | red, green, blue                                             |
+| bind:h          | number 0-359    |                               | hue                                                          |
+| bind:s,l,v,a    | number 0-1      |                               | saturation, lightness, value, alpha                          |
+| setColor(color) | method          | color: string, object         | color: any color tinycolor2 accepts                          |
+| on:input        | event           | event.detail = chrome.color   | Any time user changes color, see detail in the usage seccion |
 
 ### License
 MIT 
