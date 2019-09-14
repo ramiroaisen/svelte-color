@@ -183,7 +183,7 @@
     // setColor accepts any value
     // that tinycolor2 accepts
     // use this method, do not do chrome.color = "red"
-    // startColor accepts the same arguments
+    // startColor accepts the same values
     chrome.setColor("red");
     chrome.setColor("#fff")
     chrome.setColor("#ffffff")
