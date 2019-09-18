@@ -166,8 +166,6 @@
 
   let fieldsIndex = 1;
 
-  window.tinycolor = tinycolor;
-
   export const setColor = (args) => update(args, false); 
 
   const update = (args, dispatch=true) => {

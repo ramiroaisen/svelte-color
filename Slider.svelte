@@ -77,13 +77,13 @@
 
   const startMove = (event) => {
     handleMousemove(event);
-    window.addEventListener("mousemove", handleMousemove);    
-    window.addEventListener("mouseup", handleMouseup);
+    self.addEventListener("mousemove", handleMousemove);    
+    self.addEventListener("mouseup", handleMouseup);
   }
 
   const handleMouseup = () => {
-    window.removeEventListener("mousemove", handleMousemove);
-    window.removeEventListener("mousedown", handleMouseup)
+    self.removeEventListener("mousemove", handleMousemove);
+    self.removeEventListener("mousedown", handleMouseup)
   }
 
   const handleSliderMousemove = (event) => {

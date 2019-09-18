@@ -71,13 +71,13 @@
   const startMove = () => {
     //dispatch("inputstart", {s, v})
     handleMousemove(event);
-    window.addEventListener("mousemove", handleMousemove);
-    window.addEventListener("mouseup", handleMouseup);
+    self.addEventListener("mousemove", handleMousemove);
+    self.addEventListener("mouseup", handleMouseup);
   }
 
   const handleMouseup = () => {
-    window.removeEventListener("mousemove", handleMousemove);
-    window.removeEventListener("mouseup", handleMouseup);
+    self.removeEventListener("mousemove", handleMousemove);
+    self.removeEventListener("mouseup", handleMouseup);
     //dispatch("inputend", {s, v});
   }
 
