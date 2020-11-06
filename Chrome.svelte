@@ -59,16 +59,16 @@
   }
 
   .changer-up {
-    width: 0; 
-    height: 0; 
+    width: 0;
+    height: 0;
     border-left: 0.5em solid transparent;
     border-right: 0.5em solid transparent;
     border-bottom: 0.5em solid #666;
   }
 
   .changer-down {
-    width: 0; 
-    height: 0; 
+    width: 0;
+    height: 0;
     border-left: 0.5em solid transparent;
     border-right: 0.5em solid transparent;
     border-top: 0.5em solid #666;
@@ -105,7 +105,7 @@
   .hsla-wrap > div:not(:first-child){
     margin-left: 0.5em;
   }
-  
+
   .rgba-wrap input,
   .hsla-wrap input{
     width: 100%;
@@ -124,7 +124,7 @@
     right: 0.25em;
   }
 
-  label{
+  span.label{
     display: block;
     text-transform: uppercase;
     text-align: center;
@@ -157,7 +157,7 @@
   export let b = 0;
   export let hex = "#ff0000";
   export let a = 1;
-  
+
   export let color;
   $: color = {r, g, b, h, s, l, v, a, hex};
 
@@ -166,13 +166,13 @@
 
   let fieldsIndex = 1;
 
-  export const setColor = (args) => update(args, false); 
+  export const setColor = (args) => update(args, false);
 
   const update = (args, dispatch=true) => {
 
     // is not enough with color.isValidColor
     const color = getValidColor(args);
-    
+
     if(!color) return;
 
     const format = color.getFormat();
@@ -193,7 +193,7 @@
     v = args.v != null ? args.v : _hsva.v;
     a = args.a != null ? args.a : _rgba.a;
     hex = format === "hex" ? args : _hex;
-    
+
     dispatch && dispatchInput();
   }
 
@@ -204,7 +204,7 @@
     a = alpha;
     dispatchInput()
   }
-  
+
   const dispatchInput = () => dispatch("input", color);
 
   const onlyChars = (chars) => (event) => chars.indexOf(String.fromCharCode(event.charCode)) === -1 && event.preventDefault();
@@ -215,13 +215,13 @@
 </script>
 
 <div class="color-picker">
-  
+
   <div class="saturation-value-wrap">
     <SaturationValue {h} {s} {v} on:input={(event) => update({h, s: event.detail.s, v: event.detail.v, a})} />
   </div>
 
   <div class="sliders-and-square">
-    
+
     <div class="square-wrap">
       <ColorSquare color="rgba({r}, {g}, {b}, {a})"/>
     </div>
@@ -240,11 +240,11 @@
   </div>
 
   <div class="inputs-and-changer">
-   
+
     <div class="inputs-wrap">
       {#if fieldsIndex === 0}
         <div class="input-wrap hex-wrap">
-          <input 
+          <input
             class="hex"
             type="text"
             value={hex}
@@ -252,7 +252,7 @@
             on:keypress={onlyChars("#0123456789abcdefABCFDEF")}
             on:input={event => update(event.target.value)}
           />
-          <label>hex</label>
+          <span class="label">hex</span>
         </div>
       {:else if fieldsIndex === 1}
         <div class="rgba-wrap">
@@ -265,7 +265,7 @@
               on:keypress={onlyNumbers}
               on:input={event => update({r: parseInt(event.target.value), g, b, a})}
             />
-            <label>r</label>
+            <span class="label">r</span>
           </div>
           <div class="input-wrap">
             <input
@@ -276,7 +276,7 @@
               on:keypress={onlyNumbers}
               on:input={event => update({r, g: parseInt(event.target.value), b, a})}
             />
-            <label>g</label>
+            <span class="label">g</span>
           </div>
           <div class="input-wrap">
             <input class="rgba"
@@ -286,7 +286,7 @@
               on:keypress={onlyNumbers}
               on:input={event => update({r, g, b: parseInt(event.target.value), a})}
             />
-            <label>b</label>
+            <span class="label">b</span>
           </div>
           {#if !disableAlpha}
             <div class="input-wrap">
@@ -298,7 +298,7 @@
                 on:keypress={onlyNumbersAndDot}
                 on:input={event => updateAlpha(parseFloat(event.target.value))}
               />
-              <label>a</label>
+              <span class="label">a</span>
             </div>
           {/if}
         </div>
@@ -312,7 +312,7 @@
               on:keypress={onlyNumbers}
               on:input={event => update({h: parseInt(event.target.value), s, l, a})}
             />
-            <label>h</label>
+            <span class="label">h</span>
           </div>
           <div class="input-wrap">
             <input
@@ -323,7 +323,7 @@
               on:keypress={onlyNumbers}
               on:input={event => update({h, s: parseFloat(event.target.value) / 100, l, a})}
             />
-            <label>s</label>
+            <span class="label">s</span>
           </div>
           <div class="input-wrap">
             <input
@@ -334,7 +334,7 @@
               on:keypress={onlyNumbers}
               on:input={event => update({h, s, l: parseFloat(event.target.value) / 100, a})}
             />
-            <label>l</label>
+            <span class="label">l</span>
           </div>
           {#if !disableAlpha}
             <div class="input-wrap">
@@ -346,7 +346,7 @@
                 on:keypress={onlyNumbersAndDot}
                 on:input={event => updateAlpha(parseFloat(event.target.value))}
               />
-              <label>a</label>
+              <span class="label">a</span>
             </div>
           {/if}
         </div>
@@ -359,4 +359,4 @@
     </div>
   </div>
 
-</div> 
+</div>
