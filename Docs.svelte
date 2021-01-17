@@ -65,7 +65,7 @@
     margin-top: 0.5em;
   }
 
-  label{
+  .label{
     display: block;
     text-align: center;
     margin-top: 1em;
@@ -129,7 +129,7 @@
       </div>
       <div class="main-picker">
         <Chrome bind:this={chrome} bind:r bind:g bind:b bind:a bind:h bind:s bind:l bind:v bind:hex startColor="#0f0" />
-        <label class="chrome-label">Chrome</label>
+        <div class="chrome-label label">Chrome</div>
       </div>
     </header>
 
@@ -138,14 +138,14 @@
       <div class="hue-wrap">
         <div class="hue">
           <Hue bind:h on:input={() => update({h,s,v,a})} />
-          <label>Hue</label>
+          <div class="label">Hue</div>
         </div>
       </div>
 
       <div class="alpha-wrap">
         <div class="alpha">
           <Alpha bind:a color={hex} on:input={() => update({h,s,v,a})} />
-          <label>Alpha</label>
+          <div class="label">Alpha</div>
         </div>
       </div>
     </seccion>
