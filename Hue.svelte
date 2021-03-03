@@ -36,5 +36,5 @@
 </script>
 
 <div class="hue {className}" class:vertical class:horizontal={!vertical}>
-  <Slider bind:value={sliderValue} value={sliderValue} {vertical} on:input={handle}/>
+  <Slider bind:value={sliderValue} {vertical} on:input={handle}/>
 </div>
